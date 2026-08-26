@@ -1,6 +1,6 @@
 # Arise Strong Together — Website
 
-Marketing/informational site for Arise Strong Together, an organisation supporting
+Informational site for Arise Strong Together, an organisation supporting
 survivors of gender-based violence.
 
 **Stack:** React 19 · TypeScript · Vite 6 · Tailwind CSS v4 · React Router 7 · lucide-react
@@ -55,9 +55,9 @@ src/
   index.css    Tailwind v4 + @theme design tokens
 ```
 
-## Before launch
+<!-- ## Before launch
 - Replace every `[BRACKETED]` placeholder (helpline & emergency numbers, stats with
   sources, addresses, payment channels, real photos, consented survivor stories).
 - Connect the Volunteer and Contact forms to a backend or form service
   (they currently show a placeholder alert on submit).
-- Point the "Exit this site" target and helpline numbers at the real values.
+- Point the "Exit this site" target and helpline numbers at the real values. -->
