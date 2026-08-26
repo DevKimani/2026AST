@@ -17,7 +17,7 @@ export default function Programs() {
   return (
     <>
       <Banner crumb={<Crumb label="Programs" />} eyebrow="What we do" title="Our Programs"
-        text="Ending gender-based violence takes more than a single response. Our programmes work together across a survivor’s whole journey — from crisis, through healing, to independence — while tackling the root causes of violence." />
+        text="Ending gender-based violence takes more than a single response. Our programmes work together across a survivor’s whole journey; from crisis, through healing, to independence; while tackling the root causes of violence." />
       <Section>
         <div className="grid gap-[22px] md:grid-cols-2">
           {programs.map((p) => (

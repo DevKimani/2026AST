@@ -28,9 +28,9 @@ export default function ProgramDetail() {
             <h2>Who we support</h2>
             <p>{p.who}</p>
             <div className="mt-5">
-              <Callout variant="calm" icon={<Heart size={22} strokeWidth={1.8} />} title="A story of change">
+              {/* <Callout variant="calm" icon={<Heart size={22} strokeWidth={1.8} />} title="A story of change">
                 <span className="italic">“[Template only — a real, consented survivor story goes here, using a pseudonym or full anonymity at the survivor’s choice.]”</span>
-              </Callout>
+              </Callout> */}
             </div>
           </Reveal>
           <Reveal className="bg-white border border-sage-line rounded-[14px] p-[26px] lg:sticky lg:top-[100px]">
@@ -38,14 +38,14 @@ export default function ProgramDetail() {
             {p.outcomes.map((o, i) => (
               <p key={i} className="mb-3.5"><span className="font-display text-2xl text-ochre">{o.n}</span><br /><span className="text-[13px] text-muted">{o.l}</span></p>
             ))}
-            <p className="text-[13px] text-muted italic mb-3">Placeholder figures — verify before launch.</p>
+            {/* <p className="text-[13px] text-muted italic mb-3">Placeholder figures — verify before launch.</p> */}
             <Button to="/get-help" variant="help" className="w-full justify-center">Get support</Button>
           </Reveal>
         </div>
       </Section>
 
       {/* Programme in action — real photos where we have them, placeholders elsewhere */}
-      <Section variant="sage">
+      {/* <Section variant="sage">
         <SectionHead eyebrow="In the community" title="Programme in action" />
         {p.images?.length ? (
           <div className={cn("grid gap-6", p.images.length > 1 ? "md:grid-cols-2" : "max-w-[760px] mx-auto")}>
@@ -58,7 +58,7 @@ export default function ProgramDetail() {
             <Photo alt={`${p.name} activity`} caption="Add a photo of this programme" className="aspect-[16/9]" />
           </Reveal>
         )}
-      </Section>
+      </Section> */}
 
       <CtaBand />
     </>

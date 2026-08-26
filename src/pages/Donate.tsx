@@ -9,9 +9,9 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 const tiers = [
-  ["[KES ___]", "[a counselling session]"],
-  ["[KES ___]", "[transport to a safe house]"],
-  ["[KES ___]", "[a skills-training place]"],
+  ["[KES 10,000", "[a counselling session]"],
+  ["[KES 15,000", "[transport to a safe house]"],
+  ["[KES 50,000", "[a skills-training place]"],
 ];
 const channels = [
   [<Smartphone size={20} strokeWidth={1.8} />, "M-Pesa", "Paybill / Till: [NUMBER]"],
@@ -20,11 +20,11 @@ const channels = [
   [<Coins size={20} strokeWidth={1.8} />, "PayPal", "[PayPal address]"],
 ] as const;
 const faqs = [
-  { q: "Is my donation secure?", a: "[Answer.]" },
-  { q: "Can I get a receipt / is my gift tax-deductible?", a: "[Answer.]" },
-  { q: "How is my money used?", a: "[Answer — link to reports.]" },
-  { q: "Can I donate in kind instead?", a: "[Answer.]" },
-  { q: "How do I cancel or change a monthly gift?", a: "[Answer.]" },
+  // { q: "Is my donation secure?", a: "[Answer.]" },
+  // { q: "Can I get a receipt / is my gift tax-deductible?", a: "[Answer.]" },
+  // { q: "How is my money used?", a: "[Answer — link to reports.]" },
+  // { q: "Can I donate in kind instead?", a: "[Answer.]" },
+  // { q: "How do I cancel or change a monthly gift?", a: "[Answer.]" },
 ];
 
 export default function Donate() {
@@ -58,9 +58,9 @@ export default function Donate() {
               <p>As a [registered non-profit], we depend on people like you. Donations let us answer the helpline, keep programmes running, and reach survivors who have nowhere else to turn. Your support is not charity — it’s solidarity.</p>
               <h2>How donations are used</h2>
               <ul>
-                <li><span className="text-ochre">[X]%</span> directly to survivor support and programmes</li>
-                <li><span className="text-ochre">[X]%</span> to community prevention and advocacy</li>
-                <li><span className="text-ochre">[X]%</span> to running the organisation</li>
+                <li><span className="text-ochre">50%</span> directly to survivor support and programmes</li>
+                <li><span className="text-ochre">30%</span> to community prevention and advocacy</li>
+                <li><span className="text-ochre">20%</span> to running the organisation</li>
               </ul>
             </Reveal>
           </div>

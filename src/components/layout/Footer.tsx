@@ -13,7 +13,7 @@ export function Footer() {
             <div className="font-display text-[22px] text-white font-semibold mb-3.5 flex items-center gap-2.5">
               <Logo size={30} badge /> Arise Strong Together
             </div>
-            <p className="text-[14.5px] max-w-[34ch] text-[#a9ccbe]">Walking with survivors of gender-based violence — from surviving to thriving.</p>
+            <p className="text-[14.5px] max-w-[34ch] text-[#a9ccbe]">Walking with survivors of gender-based violence-from surviving to thriving.</p>
           </div>
           <div>
             <h4 className="text-[13px] tracking-[.12em] uppercase text-[#8fb6a7] mb-4 font-semibold font-sans">Explore</h4>
@@ -38,10 +38,10 @@ export function Footer() {
           </div>
         </div>
         <div className="border-t border-white/10 mt-11 pt-[22px] flex justify-between gap-4 flex-wrap items-center text-[13px] text-[#8fb6a7]">
-          <span className="inline-flex items-center gap-1.5"><Lock size={14} /> Secure site · © [YEAR] Arise Strong Together · Reg. No. [XXXX]</span>
+          <span className="inline-flex items-center gap-1.5"><Lock size={14} /> Secure site · © 2025 Arise Strong Together ·  Designed by ...</span>
           <span className="inline-flex border border-white/20 rounded-lg overflow-hidden">
-            <button className="bg-white/15 text-white text-[13px] px-3 py-1.5">English</button>
-            <button className="text-[#c9ded4] text-[13px] px-3 py-1.5">Kiswahili</button>
+            {/* <button className="bg-white/15 text-white text-[13px] px-3 py-1.5">English</button>
+            <button className="text-[#c9ded4] text-[13px] px-3 py-1.5">Kiswahili</button> */}
           </span>
         </div>
       </div>

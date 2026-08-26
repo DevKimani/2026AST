@@ -7,9 +7,9 @@ export function SafetyBar() {
         <div className="flex gap-[22px] flex-wrap items-center">
           <span className="inline-flex items-center gap-[7px]">
             <span className="w-[7px] h-[7px] rounded-full bg-alert" style={{ animation: "pulse-dot 2.4s infinite" }} />
-            In immediate danger? Call <strong className="text-white font-semibold">[EMERGENCY NO.]</strong>
+            In immediate danger? Call <strong className="text-white font-semibold">[EMERGENCY NO. +254....]</strong>
           </span>
-          <span>Confidential helpline: <strong className="text-white font-semibold">[HELPLINE NO.]</strong> · [HOURS]</span>
+          <span>Confidential helpline: <strong className="text-white font-semibold">[HELPLINE NO. +254....]</strong> · [HOURS: 8:00AM-5:00 PM]</span>
         </div>
         <button
           onClick={quickExit}

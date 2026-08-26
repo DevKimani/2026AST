@@ -117,8 +117,8 @@ export default function Home() {
           <Reveal>
             <Eyebrow className="text-[#e8c9a6]">Turning pain into purpose</Eyebrow>
             <blockquote className="font-display text-[clamp(24px,2.8vw,32px)] leading-[1.32] mt-[18px]">“My survival was never meant to be a private victory — it was a blueprint for helping others.”</blockquote>
-            <div className="mt-[22px] text-[14.5px] text-[#d8c4ad]">— [Founder’s name], Founder of Arise Strong Together · survivor and counsellor</div>
-            <p className="mt-2.5 text-[12.5px] text-[#c6b299] italic max-w-[52ch]">Our founder’s own story. Add their name and photo when ready.</p>
+            <div className="mt-[22px] text-[14.5px] text-[#d8c4ad]">Peris Njoroge, Founder of Arise Strong Together </div>
+            
           </Reveal>
           <Reveal><Photo src="/images/story.jpg" alt="Founder of Arise Strong Together" className="aspect-[5/4]" /></Reveal>
         </div>

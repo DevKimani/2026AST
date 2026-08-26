@@ -24,16 +24,25 @@ export default function Blog() {
         </Reveal>
 
         <Reveal className="grid lg:grid-cols-[1.1fr_.9fr] gap-9 items-center bg-white border border-sage-line rounded-[20px] overflow-hidden mb-10">
-          <div className="aspect-[16/11] bg-gradient-to-br from-forest-mid to-forest-deep flex items-end p-4 text-white/70 text-xs">[ Featured image ]</div>
+          <div className="aspect-[16/11] bg-gradient-to-br from-forest-mid to-forest-deep flex items-end p-4 text-white/70 text-xs">[ Peris Njoroge ]</div>
           <div className="p-9 max-lg:pt-0">
             <span className="text-xs font-bold tracking-[.1em] uppercase text-plum">Featured · Success Story</span>
-            <h2 className="text-[30px] text-forest my-3">[Featured post title goes here]</h2>
-            <p className="text-muted mb-4">[A compelling excerpt that draws readers into the featured story or announcement.]</p>
+            <h2 className="text-[30px] text-forest my-3">Our Founder's Story</h2>
+            <p className="text-muted mb-4"><h2>Turning Pain into Purpose</h2>
+            <p>Arise Strong Together grew out of one survivor’s journey. Our founder lived through gender-based violence and, through specialised healing and GBV training, not only rebuilt her own strength but came to understand-firsthand-the gaps in the support available to others.</p>
+            <p>That personal healing became the catalyst for something larger. She saw how many people in the community were caught in cycles of silence, without a safe space or the professional tools to recover. Determined that no one else should walk that path alone, she founded Arise Strong Together.</p>
+            <p>What began as a personal mission to heal became a structured community movement. We formally registered as <strong>Arise Strong Together CBO in June 2025</strong>-a platform where counselling, advocacy, and empowerment meet. By combining professional counselling training with lived experience as a survivor, we approach every person with genuine empathy and expert guidance.</p>
+            <h2>Mission</h2>
+            <p>To support survivors of gender-based violence to heal and reclaim their lives, and to work alongside women, youth, and the wider community to prevent violence and build a future free from GBV.</p>
+            <h2>Vision</h2>
+            <p>A community-and a society-free from gender-based violence, where every person, especially women and youth, can live with dignity, safety, and opportunity.</p>
+            <h2>Why We Rise</h2>
+            <p>We exist to prove that healing is possible, and that community support is the bridge to a better future-helping others turn their experiences into strength so that, together, we can all arise.</p></p>
             <Button href="#">Read more</Button>
           </div>
         </Reveal>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {/* <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {posts.map((p, i) => (
             <Reveal key={i}>
               <a href="#" className="block border border-sage-line rounded-[14px] overflow-hidden bg-white transition-[transform,box-shadow] hover:-translate-y-1 hover:shadow-[0_20px_40px_-26px_rgba(26,59,50,.4)]">
@@ -47,7 +56,7 @@ export default function Blog() {
               </a>
             </Reveal>
           ))}
-        </div>
+        </div> */}
         <div className="text-center mt-10"><Button variant="ghost" size="lg">Load more</Button></div>
       </Section>
     </>

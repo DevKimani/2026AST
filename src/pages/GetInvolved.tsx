@@ -36,17 +36,17 @@ export default function GetInvolved() {
           <Reveal><Card title="Sponsorship">[Sponsor a programme, an event, or a survivor’s journey]</Card></Reveal>
           <Reveal><Card title="In-kind donations">[Goods, services, professional skills, venue or equipment]</Card></Reveal>
         </div>
-        <Reveal className="mt-[26px]">
+        {/* <Reveal className="mt-[26px]">
           <Callout variant="calm" icon={<Shield size={22} strokeWidth={1.8} />} title="Why partner with us">
             [2–3 sentences on the value of partnering — reach, credibility, measurable impact, alignment with SDG 5 / gender equality.]
           </Callout>
-        </Reveal>
+        </Reveal> */}
       </Section>
 
       <Section>
         <SectionHead eyebrow="Questions" title="Frequently asked" />
-        <Reveal><Faq items={faqs} /></Reveal>
-        <div className="text-center mt-[34px]"><Button to="/contact" size="lg">Talk to our partnerships team</Button></div>
+        {/* <Reveal><Faq items={faqs} /></Reveal>
+        <div className="text-center mt-[34px]"><Button to="/contact" size="lg">Talk to our partnerships team</Button></div> */}
       </Section>
     </>
   );

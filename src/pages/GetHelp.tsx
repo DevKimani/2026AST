@@ -21,16 +21,16 @@ export default function GetHelp() {
             </Reveal>
             <Reveal className="prose">
               <h2>What to expect</h2>
-              <p>Reaching out can feel frightening. When you contact us, someone trained will listen, believe you, and talk through your options — nothing more will happen without your say-so. You are in control of every step, and you can stay anonymous.</p>
+              <p>Reaching out can feel frightening. When you contact us, someone trained will listen, believe you, and talk through your options-nothing more will happen without your say-so. You are in control of every step, and you can stay anonymous.</p>
               <h2>Support available</h2>
               <ul>
                 <li>Emotional support and a safe person to talk to</li>
                 <li>Safety planning</li>
                 <li>Referral to [safe houses / shelters], legal aid, and health services</li>
-                <li>Ongoing support through our programmes — healing, skills, and rebuilding</li>
+                <li>Ongoing support through our programmes-healing, skills, and rebuilding</li>
               </ul>
               <h2>Confidentiality &amp; your privacy</h2>
-              <p>What you share with us stays confidential. We will never share your information without your permission, except where we are legally required to protect someone at serious risk of harm — and we’ll always be honest with you about that.</p>
+              <p>What you share with us stays confidential. We will never share your information without your permission, except where we are legally required to protect someone at serious risk of harm-and we’ll always be honest with you about that.</p>
             </Reveal>
             <Reveal className="mt-[26px]">
               <Callout variant="warn" icon={<Shield size={18} strokeWidth={1.8} />} title="Cover your tracks">
@@ -45,7 +45,7 @@ export default function GetHelp() {
             <p className="text-[13px] uppercase tracking-[.1em] text-white/70 mb-0.5">Helpline</p>
             <p className="font-display text-2xl text-white mb-3.5">[HELPLINE NO.]</p>
             <p className="text-[13px] uppercase tracking-[.1em] text-white/70 mb-0.5">Hours</p>
-            <p className="text-white mb-[18px]">[HOURS]</p>
+            <p className="text-white mb-[18px]">[HOURS :8:00 am- 5:00 PM]</p>
             <Button to="/contact" variant="white" className="w-full justify-center">Send a message</Button>
           </Reveal>
         </div>
@@ -55,7 +55,9 @@ export default function GetHelp() {
         <Reveal className="max-w-[840px] mx-auto text-center">
           <Eyebrow center>If it’s not for you</Eyebrow>
           <h2 className="text-[clamp(26px,3.2vw,38px)] mt-3.5">Helpline &amp; referrals</h2>
-          <p className="text-lg text-muted mt-[18px]">A directory of trusted services — national GBV hotline, police gender desk, nearest safe houses, legal aid, and health services. [Add the referral directory here.]</p>
+          <p className="text-lg text-muted mt-[18px]">GBV Prevention and Response Helpline 1195
+
+The National Gender Based Violence (GBV) Toll Free Helpline 1195 provides round-the-clock tele-counselling and coordinated referral services to GBV survivors enabling them to access real-time interventions. The service is managed in a partnership between the Government of Kenya through the State Department for Gender Affairs and Affirmative Action and Health Assistance Kenya (HAK). The helpline is manned 24 hours to enhance reporting of GBV cases, strengthen prevention and response mechanisms.</p>
         </Reveal>
       </Section>
     </>
