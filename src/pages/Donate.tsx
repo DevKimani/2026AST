@@ -32,7 +32,7 @@ export default function Donate() {
   return (
     <>
       <Banner green crumb={<Crumb label="Donate" mid={{ to: "/get-involved", label: "Get Involved" }} />} eyebrow="Your gift helps a survivor rise" title="Donate"
-        text="Every donation — one-time or monthly — directly funds the support, skills, and safety that help survivors rebuild their lives." />
+        text="Every donation, one-time or monthly, directly funds the support, skills, and safety that help survivors rebuild their lives." />
 
       <Section>
         <div className="grid lg:grid-cols-[1fr_340px] gap-14 items-start">
