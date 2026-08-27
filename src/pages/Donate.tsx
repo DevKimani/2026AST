@@ -83,7 +83,7 @@ export default function Donate() {
               </div>
             ))}
           </Reveal>
-          <p className="text-[13px] text-muted text-center mt-4">Add your verified payment details before launch.</p>
+          {/* <p className="text-[13px] text-muted text-center mt-4">Add your verified payment details before launch.</p> */}
         </div>
       </Section>
 
