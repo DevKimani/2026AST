@@ -37,7 +37,7 @@ export default function Home() {
               </span>
             </h1>
             <p className="text-[19px] text-white/85 max-w-[38ch] mt-6">
-              Arise Strong Together supports adolescent girls, young mothers, and women affected by gender-based violence — through holistic care, psychosocial support, and economic empowerment.
+              Arise Strong Together supports adolescent girls, young mothers, and women affected by gender-based violence; through holistic care, psychosocial support, and economic empowerment.
             </p>
             <div className="flex gap-3.5 mt-8 flex-wrap">
               <Link to="/get-help" className="inline-flex items-center gap-2 font-semibold text-base px-6 py-[14px] rounded-[10px] bg-white text-forest hover:bg-[#f2ede4] transition-colors">
