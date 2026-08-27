@@ -91,7 +91,7 @@ export default function Home() {
           <Reveal><Stat n="100" label="girls given free psychosocial support" /></Reveal>
           <Reveal><Stat n="2025" label="registered as a community-based organisation" /></Reveal>
         </div>
-        <p className="text-center mt-6 text-[15px] text-muted max-w-[70ch] mx-auto">Beyond the numbers: the community is challenging harmful cultural norms, GBV cases are increasingly reported and handled in a survivor-centred way, and referral pathways are widely understood — with perpetrators more often held to account.</p>
+        <p className="text-center mt-6 text-[15px] text-muted max-w-[70ch] mx-auto">Beyond the numbers: the community is challenging harmful cultural norms, GBV cases are increasingly reported and handled in a survivor-centred way, and referral pathways are widely understood, with perpetrators more often held to account.</p>
       </Section>
 
       {/* PROGRAMS */}
@@ -116,7 +116,7 @@ export default function Home() {
         <div className="grid lg:grid-cols-[1.1fr_.9fr] gap-12 items-center">
           <Reveal>
             <Eyebrow className="text-[#e8c9a6]">Turning pain into purpose</Eyebrow>
-            <blockquote className="font-display text-[clamp(24px,2.8vw,32px)] leading-[1.32] mt-[18px]">“My survival was never meant to be a private victory — it was a blueprint for helping others.”</blockquote>
+            <blockquote className="font-display text-[clamp(24px,2.8vw,32px)] leading-[1.32] mt-[18px]">“My survival was never meant to be a private victory, it was a blueprint for helping others.”</blockquote>
             <div className="mt-[22px] text-[14.5px] text-[#d8c4ad]">Peris Njoroge, Founder of Arise Strong Together </div>
             
           </Reveal>
