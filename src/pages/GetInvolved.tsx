@@ -7,12 +7,12 @@ import { Callout } from "@/components/blocks/Callout";
 import { Faq } from "@/components/blocks/Faq";
 import { Button } from "@/components/ui/button";
 
-const faqs = [
-  { q: "How can my organisation partner with you?", a: "[Answer — outline the process and who to contact.]" },
-  { q: "Can we sponsor a specific programme?", a: "[Answer.]" },
-  { q: "Do you accept in-kind donations?", a: "[Answer.]" },
-  { q: "How do you report impact to partners?", a: "[Answer.]" },
-];
+// const faqs = [
+//   { q: "How can my organisation partner with you?", a: "[Answer — outline the process and who to contact.]" },
+//   { q: "Can we sponsor a specific programme?", a: "[Answer.]" },
+//   { q: "Do you accept in-kind donations?", a: "[Answer.]" },
+//   { q: "How do you report impact to partners?", a: "[Answer.]" },
+// ];
 
 export default function GetInvolved() {
   return (
