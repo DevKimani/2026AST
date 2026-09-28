@@ -1,0 +1,34 @@
+{
+  "nav": {
+    "about": "Kuhusu",
+    "help": "Pata Msaada",
+    "programs": "Programu",
+    "getInvolved": "Shiriki",
+    "blog": "Blogu",
+    "contact": "Wasiliana",
+    "volunteer": "Jitolee",
+    "donate": "Changia"
+  },
+  "safety": {
+    "dangerPre": "Uko hatarini kwa sasa? Piga",
+    "helpline": "Simu ya usaidizi ya siri:",
+    "exit": "Toka kwenye tovuti"
+  },
+  "footer": {
+    "tagline": "Tukisimama na wanusurika wa ukatili wa kijinsia, kutoka kunusurika hadi kustawi.",
+    "explore": "Gundua",
+    "support": "Msaada",
+    "yourSafety": "Usalama wako",
+    "aboutUs": "Kuhusu Sisi",
+    "blogNews": "Blogu / Habari",
+    "coverTitle": "Ficha alama zako",
+    "coverBody": "Una wasiwasi mtu anakuangalia? Jifunze kuvinjari kwa usalama. Kuondoka kwenye tovuti hii hakufuti kabisa ziara yako.",
+    "secure": "Tovuti salama"
+  },
+  "cta": {
+    "eyebrow": "Simama na wanusurika",
+    "title": "Kila mchango, saa, na ushirikiano humsaidia mtu kuinuka.",
+    "text": "Iwe wewe ni mtu binafsi, biashara, au shirika, kuna nafasi yako katika harakati hii.",
+    "partner": "Shirikiana nasi"
+  }
+}

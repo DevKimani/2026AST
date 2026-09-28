@@ -1,0 +1,34 @@
+{
+  "nav": {
+    "about": "About",
+    "help": "Get Help",
+    "programs": "Programs",
+    "getInvolved": "Get Involved",
+    "blog": "Blog",
+    "contact": "Contact",
+    "volunteer": "Volunteer",
+    "donate": "Donate"
+  },
+  "safety": {
+    "dangerPre": "In immediate danger? Call",
+    "helpline": "Confidential helpline:",
+    "exit": "Exit this site"
+  },
+  "footer": {
+    "tagline": "Walking with survivors of gender-based violence, from surviving to thriving.",
+    "explore": "Explore",
+    "support": "Support",
+    "yourSafety": "Your safety",
+    "aboutUs": "About Us",
+    "blogNews": "Blog / News",
+    "coverTitle": "Cover your tracks",
+    "coverBody": "Worried someone is watching? Learn how to browse safely. Leaving this site does not fully erase the visit.",
+    "secure": "Secure site"
+  },
+  "cta": {
+    "eyebrow": "Stand with survivors",
+    "title": "Every gift, hour, and partnership helps someone rise.",
+    "text": "Whether you’re an individual, a business, or an organisation, there’s a place for you in this movement.",
+    "partner": "Partner with us"
+  }
+}
