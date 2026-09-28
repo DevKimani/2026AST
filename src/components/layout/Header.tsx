@@ -50,18 +50,23 @@ export function Header() {
       </div>
 
       {open && (
-        <div className="fixed inset-0 z-[60] md:hidden">
-          <div className="absolute inset-0 bg-forest-deep/40" onClick={() => setOpen(false)} />
-          <div className="absolute top-0 right-0 bottom-0 w-[min(320px,84vw)] bg-paper p-6 shadow-[-10px_0_40px_rgba(0,0,0,.2)] flex flex-col gap-1.5">
-            <button className="self-end text-forest mb-2" aria-label="Close menu" onClick={() => setOpen(false)}><X size={26} /></button>
+        <div className="fixed inset-0 z-[60] md:hidden bg-cream flex flex-col">
+          <div className="flex items-center justify-between px-7 min-h-[74px] border-b border-sage-line">
+            <span className="flex items-center gap-[11px] font-display font-semibold text-xl text-forest"><Logo size={38} /> Arise Strong Together</span>
+            <button className="text-forest" aria-label="Close menu" onClick={() => setOpen(false)}><X size={28} /></button>
+          </div>
+          <nav className="flex-1 overflow-y-auto px-7 py-4 flex flex-col">
             {[...links, { to: "/volunteer", label: "Volunteer" }].map((l) => (
               <Link key={l.to} to={l.to} onClick={() => setOpen(false)}
-                className={cn("py-[13px] px-1 text-[17px] font-medium border-b border-sage-line", (l as any).help && "text-plum font-semibold")}>
+                className={cn("py-[15px] text-[18px] font-medium border-b border-sage-line", (l as any).help && "text-terracotta font-semibold")}>
                 {l.label}
               </Link>
             ))}
-            <Button to="/donate" className="mt-4 justify-center" onClick={() => setOpen(false)}>Donate</Button>
-          </div>
+            <div className="flex gap-3 mt-6">
+              <Button to="/get-help" variant="help" className="flex-1 justify-center" onClick={() => setOpen(false)}>Get Help</Button>
+              <Button to="/donate" className="flex-1 justify-center" onClick={() => setOpen(false)}>Donate</Button>
+            </div>
+          </nav>
         </div>
       )}
     </header>

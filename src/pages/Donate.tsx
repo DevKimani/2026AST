@@ -9,22 +9,20 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 const tiers = [
-  ["[KES 10,000", "[a counselling session]"],
-  ["[KES 15,000", "[transport to a safe house]"],
-  ["[KES 50,000", "[a skills-training place]"],
+  ["[KES ___]", "[a counselling session]"],
+  ["[KES ___]", "[transport to a safe house]"],
+  ["[KES ___]", "[a skills-training place]"],
 ];
 const channels = [
-  [<Smartphone size={20} strokeWidth={1.8} />, "M-Pesa", "Paybill / Till: [NUMBER]"],
-  [<Landmark size={20} strokeWidth={1.8} />, "Bank transfer", "[Bank, account name & number]"],
-  [<CreditCard size={20} strokeWidth={1.8} />, "Card / online", "[Payment gateway link]"],
-  [<Coins size={20} strokeWidth={1.8} />, "PayPal", "[PayPal address]"],
+  [<Smartphone size={20} strokeWidth={1.8} />, "M-Pesa (Lipa na M-Pesa)", "Paybill 400200 · Account 1201208"],
+  [<Landmark size={20} strokeWidth={1.8} />, "Bank transfer", "Co-operative Bank · Arise Strong Together · A/C 01102079018001"],
 ] as const;
 const faqs = [
-  // { q: "Is my donation secure?", a: "[Answer.]" },
-  // { q: "Can I get a receipt / is my gift tax-deductible?", a: "[Answer.]" },
-  // { q: "How is my money used?", a: "[Answer — link to reports.]" },
-  // { q: "Can I donate in kind instead?", a: "[Answer.]" },
-  // { q: "How do I cancel or change a monthly gift?", a: "[Answer.]" },
+  { q: "Is my donation secure?", a: "[Answer.]" },
+  { q: "Can I get a receipt / is my gift tax-deductible?", a: "[Answer.]" },
+  { q: "How is my money used?", a: "[Answer — link to reports.]" },
+  { q: "Can I donate in kind instead?", a: "[Answer.]" },
+  { q: "How do I cancel or change a monthly gift?", a: "[Answer.]" },
 ];
 
 export default function Donate() {
@@ -32,7 +30,7 @@ export default function Donate() {
   return (
     <>
       <Banner green crumb={<Crumb label="Donate" mid={{ to: "/get-involved", label: "Get Involved" }} />} eyebrow="Your gift helps a survivor rise" title="Donate"
-        text="Every donation, one-time or monthly, directly funds the support, skills, and safety that help survivors rebuild their lives." />
+        text="Every donation — one-time or monthly — directly funds the support, skills, and safety that help survivors rebuild their lives." />
 
       <Section>
         <div className="grid lg:grid-cols-[1fr_340px] gap-14 items-start">
@@ -58,9 +56,9 @@ export default function Donate() {
               <p>As a [registered non-profit], we depend on people like you. Donations let us answer the helpline, keep programmes running, and reach survivors who have nowhere else to turn. Your support is not charity — it’s solidarity.</p>
               <h2>How donations are used</h2>
               <ul>
-                <li><span className="text-ochre">50%</span> directly to survivor support and programmes</li>
-                <li><span className="text-ochre">30%</span> to community prevention and advocacy</li>
-                <li><span className="text-ochre">20%</span> to running the organisation</li>
+                <li><span className="text-ochre">[X]%</span> directly to survivor support and programmes</li>
+                <li><span className="text-ochre">[X]%</span> to community prevention and advocacy</li>
+                <li><span className="text-ochre">[X]%</span> to running the organisation</li>
               </ul>
             </Reveal>
           </div>
@@ -83,7 +81,7 @@ export default function Donate() {
               </div>
             ))}
           </Reveal>
-          {/* <p className="text-[13px] text-muted text-center mt-4">Add your verified payment details before launch.</p> */}
+          <p className="text-[13px] text-muted text-center mt-4">Prefer to give directly? Use the M-Pesa Paybill or bank details above.</p>
         </div>
       </Section>
 

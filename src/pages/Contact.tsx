@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Shield, Mail, Phone, MapPin, Clock, CheckCircle2 } from "lucide-react";
+import { Shield, Mail, Phone, MapPin, Clock, CheckCircle2, Instagram } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Reveal } from "@/components/Reveal";
 import { Banner, Crumb } from "@/components/blocks/Banner";
@@ -81,14 +81,12 @@ export default function Contact() {
           <Reveal>
             <div className="bg-white border border-sage-line rounded-[14px] p-[26px] mb-5">
               <h3 className="text-xl mb-3">Our details</h3>
-              {[[<Mail size={20} strokeWidth={1.8} />, "[email address]"], [<Phone size={20} strokeWidth={1.8} />, "[phone number]"], [<MapPin size={20} strokeWidth={1.8} />, "[physical address]"], [<Clock size={20} strokeWidth={1.8} />, "[office hours]"]].map(([ic, t], i) => (
+              {[[<Mail size={20} strokeWidth={1.8} />, "[email address]"], [<Phone size={20} strokeWidth={1.8} />, "0180 740 140"], [<MapPin size={20} strokeWidth={1.8} />, "Samburu County, Kenya"], [<Clock size={20} strokeWidth={1.8} />, "[office hours]"]].map(([ic, t], i) => (
                 <p key={i} className="flex gap-2.5 items-start text-ink mb-2.5">{ic}<span>{t}</span></p>
               ))}
               <h4 className="font-sans text-[13px] tracking-[.1em] uppercase text-muted mb-2.5 mt-4">Follow us</h4>
               <div className="flex gap-3">
-                {["f", "◎", "✕", "in"].map((s) => (
-                  <a key={s} href="#" className="w-[42px] h-[42px] rounded-[11px] bg-sage flex items-center justify-center text-forest hover:bg-forest hover:text-white transition-colors">{s}</a>
-                ))}
+                <a href="https://www.instagram.com/arisestrongtogether/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-[42px] h-[42px] rounded-[11px] bg-sage flex items-center justify-center text-forest hover:bg-forest hover:text-white transition-colors"><Instagram size={20} /></a>
               </div>
             </div>
             <div className="aspect-video rounded-[14px] bg-gradient-to-br from-sage to-[#d3e2d9] border border-sage-line flex items-center justify-center text-forest text-sm gap-2"><MapPin size={20} strokeWidth={1.8} /> [ Google Maps embed ]</div>

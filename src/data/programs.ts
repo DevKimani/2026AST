@@ -15,14 +15,14 @@ export const programs: Program[] = [
     slug: "gbv",
     name: "Gender-Based Violence Response",
     icon: "heart",
-    intro: "Confidential, survivor-led support and free psychosocial care for anyone affected by gender-based violence,at the pace they choose.",
+    intro: "Confidential, survivor-led support and free psychosocial care for anyone affected by gender-based violence — at the pace they choose.",
     heading1: "Objectives",
     list1: [
       "Create safe spaces where survivors can break the silence around GBV",
       "Provide free psychosocial support and counselling from trained counsellors",
       "Ensure survivors are believed, supported, and empowered to heal",
-      "Connect survivors to referral pathways;legal, health, and shelter services",
-      "Support survivor-centred handling of cases and accountability for perpetrators",
+      "Connect survivors to referral pathways — legal, health, and shelter services",
+      "Support survivors through a confidential, survivor-centred process",
     ],
     heading2: "Activities",
     list2: [
@@ -36,14 +36,14 @@ export const programs: Program[] = [
     outcomes: [
       { n: "200", l: "young women given free psychosocial support" },
       { n: "100", l: "girls given free psychosocial support" },
-      { n: "***", l: "referrals through GBV pathways" },
+      { n: "2", l: "referrals through GBV pathways" },
     ],
   },
   {
     slug: "capacity-building",
     name: "Capacity Building",
     icon: "book",
-    intro: "Workshops that build confidence and practical skills; equipping women and youth to step into leadership and business roles in the community.",
+    intro: "Workshops that build confidence and practical skills — equipping women and youth to step into leadership and business roles in the community.",
     heading1: "Training areas",
     list1: [
       "Understanding gender-based violence and survivors’ rights",
@@ -61,9 +61,9 @@ export const programs: Program[] = [
     ],
     who: "Women and youth in our community ready to grow their confidence, skills, and leadership.",
     outcomes: [
-      { n: "***", l: "people trained" },
-      { n: "***", l: "women & youth in leadership roles" },
-      { n: "***", l: "partner institutions reached" },
+      { n: "20", l: "people trained" },
+      { n: "3", l: "young women in leadership" },
+      { n: "1", l: "partner reached" },
     ],
   },
   {
@@ -75,7 +75,7 @@ export const programs: Program[] = [
     list1: [
       "Challenging harmful cultural norms that enable GBV",
       "Raising awareness of referral pathways so cases are reported",
-      "Promoting survivor-centred handling of cases and accountability",
+      "Promoting survivor-centred support and survivors’ access to help",
       "Amplifying local voices in decisions that affect the community",
     ],
     heading2: "Engagement activities",
@@ -87,9 +87,8 @@ export const programs: Program[] = [
     ],
     who: "Communities, local leaders, schools, faith groups, and partners across [area].",
     outcomes: [
-      { n: "***", l: "people reached in campaigns" },
-      { n: "***", l: "community dialogues held" },
-      { n: "***", l: "partners engaged" },
+      { n: "200", l: "people reached" },
+      { n: "5", l: "community dialogues" },
     ],
   },
   {
@@ -112,9 +111,9 @@ export const programs: Program[] = [
     ],
     who: "Survivors — especially women and youth — ready to build independent, sustainable livelihoods.",
     outcomes: [
-      { n: "***", l: "supported into work or enterprise" },
-      { n: "***", l: "micro-enterprises started" },
-      { n: "***", l: "households more financially stable" },
+      { n: "2", l: "young women supported with skills & tools" },
+      { n: "5", l: "small businesses started" },
+      { n: "5", l: "households financially stable" },
     ],
     images: ["/images/hero.jpg", "/images/mission.jpg"],
   },

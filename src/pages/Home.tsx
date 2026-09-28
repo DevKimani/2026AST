@@ -37,7 +37,7 @@ export default function Home() {
               </span>
             </h1>
             <p className="text-[19px] text-white/85 max-w-[38ch] mt-6">
-              Arise Strong Together supports adolescent girls, young mothers, and women affected by gender-based violence; through holistic care, psychosocial support, and economic empowerment.
+              Arise Strong Together supports adolescent girls, young mothers, and women affected by gender-based violence — through holistic care, psychosocial support, and economic empowerment.
             </p>
             <div className="flex gap-3.5 mt-8 flex-wrap">
               <Link to="/get-help" className="inline-flex items-center gap-2 font-semibold text-base px-6 py-[14px] rounded-[10px] bg-white text-forest hover:bg-[#f2ede4] transition-colors">
@@ -91,7 +91,7 @@ export default function Home() {
           <Reveal><Stat n="100" label="girls given free psychosocial support" /></Reveal>
           <Reveal><Stat n="2025" label="registered as a community-based organisation" /></Reveal>
         </div>
-        <p className="text-center mt-6 text-[15px] text-muted max-w-[70ch] mx-auto">Beyond the numbers: the community is challenging harmful cultural norms, GBV cases are increasingly reported and handled in a survivor-centred way, and referral pathways are widely understood, with perpetrators more often held to account.</p>
+        <p className="text-center mt-6 text-[15px] text-muted max-w-[70ch] mx-auto">Beyond the numbers: the community is challenging harmful cultural norms, GBV cases are increasingly reported and handled in a survivor-centred way, and referral pathways are widely understood.</p>
       </Section>
 
       {/* PROGRAMS */}
@@ -116,9 +116,9 @@ export default function Home() {
         <div className="grid lg:grid-cols-[1.1fr_.9fr] gap-12 items-center">
           <Reveal>
             <Eyebrow className="text-[#e8c9a6]">Turning pain into purpose</Eyebrow>
-            <blockquote className="font-display text-[clamp(24px,2.8vw,32px)] leading-[1.32] mt-[18px]">“My survival was never meant to be a private victory, it was a blueprint for helping others.”</blockquote>
-            <div className="mt-[22px] text-[14.5px] text-[#d8c4ad]">Peris Njoroge, Founder of Arise Strong Together </div>
-            
+            <blockquote className="font-display text-[clamp(24px,2.8vw,32px)] leading-[1.32] mt-[18px]">“My survival was never meant to be a private victory — it was a blueprint for helping others.”</blockquote>
+            <div className="mt-[22px] text-[14.5px] text-[#d8c4ad]">— [Founder’s name], Founder of Arise Strong Together · survivor and counsellor</div>
+            <p className="mt-2.5 text-[12.5px] text-[#c6b299] italic max-w-[52ch]">Our founder’s own story. Add their name and photo when ready.</p>
           </Reveal>
           <Reveal><Photo src="/images/story.jpg" alt="Founder of Arise Strong Together" className="aspect-[5/4]" /></Reveal>
         </div>
