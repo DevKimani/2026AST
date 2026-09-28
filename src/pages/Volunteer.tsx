@@ -5,7 +5,6 @@ import { Banner, Crumb } from "@/components/blocks/Banner";
 import { Section, SectionHead, Eyebrow } from "@/components/blocks/Section";
 import { Card } from "@/components/blocks/Cards";
 import { Callout } from "@/components/blocks/Callout";
-import { Faq } from "@/components/blocks/Faq";
 import { Button } from "@/components/ui/button";
 import { submitVolunteer } from "@/lib/submissions";
 
@@ -17,12 +16,7 @@ const roles = [
   ["Peer mentorship", "[Where appropriate and trained.] Walk alongside survivors on their journey."],
   ["Your idea", "Have a skill we haven’t listed? Tell us how you’d like to help."],
 ];
-const faqs = [
-  { q: "Do I need experience?", a: "[Answer — most roles need commitment and empathy; some need specific qualifications.]" },
-  { q: "Can I volunteer remotely?", a: "[Answer.]" },
-  { q: "Will I receive training?", a: "[Answer.]" },
-  { q: "Is there a minimum commitment?", a: "[Answer.]" },
-];
+
 const input = "font-sans text-[15px] px-3.5 py-3 border-[1.5px] border-sage-line rounded-[10px] bg-white text-ink focus:border-forest focus:outline-none";
 const label = "text-sm font-semibold text-ink";
 type Status = "idle" | "sending" | "sent" | "error";
@@ -54,7 +48,7 @@ export default function Volunteer() {
   return (
     <>
       <Banner crumb={<Crumb label="Volunteer" mid={{ to: "/get-involved", label: "Get Involved" }} />} eyebrow="Join us" title="Give Your Time. Change a Life."
-        text="Our volunteers are the backbone of our work — helping survivors feel less alone and extending our reach in the community." />
+        text="Our volunteers are the backbone of our work, helping survivors feel less alone and extending our reach in the community." />
 
       <Section>
         <div className="grid gap-[22px] md:grid-cols-3">
@@ -84,7 +78,7 @@ export default function Volunteer() {
           <Reveal className="bg-white border border-sage-line rounded-[14px] p-[26px]">
             <Shield size={24} strokeWidth={1.8} className="text-forest" />
             <h3 className="text-xl mt-3 mb-2">Safe by design</h3>
-            <p className="text-muted text-[15px]">Because we work with survivors, all volunteers undergo [safeguarding screening]. This protects the people we serve — and it’s something we’re proud of.</p>
+            <p className="text-muted text-[15px]">Because we work with survivors, all volunteers undergo [safeguarding screening]. This protects the people we serve, and it’s something we’re proud of.</p>
           </Reveal>
         </div>
       </Section>
@@ -124,10 +118,7 @@ export default function Volunteer() {
         </div>
       </Section>
 
-      <Section variant="sage">
-        <SectionHead eyebrow="Questions" title="Volunteer FAQ" />
-        <Reveal><Faq items={faqs} /></Reveal>
-      </Section>
+
     </>
   );
 }

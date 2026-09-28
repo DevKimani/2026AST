@@ -4,15 +4,7 @@ import { Banner, Crumb } from "@/components/blocks/Banner";
 import { Section, SectionHead } from "@/components/blocks/Section";
 import { Card, ProgramCard } from "@/components/blocks/Cards";
 import { Callout } from "@/components/blocks/Callout";
-import { Faq } from "@/components/blocks/Faq";
 import { Button } from "@/components/ui/button";
-
-const faqs = [
-  { q: "How can my organisation partner with you?", a: "[Answer — outline the process and who to contact.]" },
-  { q: "Can we sponsor a specific programme?", a: "[Answer.]" },
-  { q: "Do you accept in-kind donations?", a: "[Answer.]" },
-  { q: "How do you report impact to partners?", a: "[Answer.]" },
-];
 
 export default function GetInvolved() {
   return (
@@ -38,15 +30,13 @@ export default function GetInvolved() {
         </div>
         <Reveal className="mt-[26px]">
           <Callout variant="calm" icon={<Shield size={22} strokeWidth={1.8} />} title="Why partner with us">
-            [2–3 sentences on the value of partnering — reach, credibility, measurable impact, alignment with SDG 5 / gender equality.]
+            [2–3 sentences on the value of partnering, reach, credibility, measurable impact, alignment with SDG 5 / gender equality.]
           </Callout>
         </Reveal>
       </Section>
 
       <Section>
-        <SectionHead eyebrow="Questions" title="Frequently asked" />
-        <Reveal><Faq items={faqs} /></Reveal>
-        <div className="text-center mt-[34px]"><Button to="/contact" size="lg">Talk to our partnerships team</Button></div>
+        <div className="text-center"><Button to="/contact" size="lg">Talk to our partnerships team</Button></div>
       </Section>
     </>
   );

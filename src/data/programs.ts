@@ -15,13 +15,13 @@ export const programs: Program[] = [
     slug: "gbv",
     name: "Gender-Based Violence Response",
     icon: "heart",
-    intro: "Confidential, survivor-led support and free psychosocial care for anyone affected by gender-based violence — at the pace they choose.",
+    intro: "Confidential, survivor-led support and free psychosocial care for anyone affected by gender-based violence, at the pace they choose.",
     heading1: "Objectives",
     list1: [
       "Create safe spaces where survivors can break the silence around GBV",
       "Provide free psychosocial support and counselling from trained counsellors",
       "Ensure survivors are believed, supported, and empowered to heal",
-      "Connect survivors to referral pathways — legal, health, and shelter services",
+      "Connect survivors to referral pathways, legal, health, and shelter services",
       "Support survivors through a confidential, survivor-centred process",
     ],
     heading2: "Activities",
@@ -32,7 +32,7 @@ export const programs: Program[] = [
       "Peer support groups",
       "Follow-up support through healing and recovery",
     ],
-    who: "Women, young women, and girls affected by GBV in our community — and anyone seeking a safe, non-judgmental space to be believed and supported.",
+    who: "Women, young women, and girls affected by GBV in our community, and anyone seeking a safe, non-judgmental space to be believed and supported.",
     outcomes: [
       { n: "200", l: "young women given free psychosocial support" },
       { n: "100", l: "girls given free psychosocial support" },
@@ -43,7 +43,7 @@ export const programs: Program[] = [
     slug: "capacity-building",
     name: "Capacity Building",
     icon: "book",
-    intro: "Workshops that build confidence and practical skills — equipping women and youth to step into leadership and business roles in the community.",
+    intro: "Workshops that build confidence and practical skills, equipping women and youth to step into leadership and business roles in the community.",
     heading1: "Training areas",
     list1: [
       "Understanding gender-based violence and survivors’ rights",
@@ -85,7 +85,7 @@ export const programs: Program[] = [
       "Working with schools, faith groups, and local leaders",
       "Public events and commemorations [e.g. 16 Days of Activism]",
     ],
-    who: "Communities, local leaders, schools, faith groups, and partners across [area].",
+    who: "Communities, local leaders, schools, faith groups, and partners across Samburu County.",
     outcomes: [
       { n: "200", l: "people reached" },
       { n: "5", l: "community dialogues" },
@@ -95,7 +95,7 @@ export const programs: Program[] = [
     slug: "economic-empowerment",
     name: "Economic Empowerment",
     icon: "coin",
-    intro: "Grassroots initiatives that help survivors build sustainable micro-enterprises — stabilising households and reducing vulnerability through financial independence.",
+    intro: "Grassroots initiatives that help survivors build sustainable micro-enterprises, stabilising households and reducing vulnerability through financial independence.",
     heading1: "What we offer",
     list1: [
       "Support to start and grow sustainable micro-enterprises",
@@ -109,7 +109,7 @@ export const programs: Program[] = [
       "Ongoing coaching as businesses grow",
       "Peer networks of survivor entrepreneurs",
     ],
-    who: "Survivors — especially women and youth — ready to build independent, sustainable livelihoods.",
+    who: "Survivors, especially women and youth, ready to build independent, sustainable livelihoods.",
     outcomes: [
       { n: "2", l: "young women supported with skills & tools" },
       { n: "5", l: "small businesses started" },

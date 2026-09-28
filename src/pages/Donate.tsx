@@ -4,33 +4,26 @@ import { Reveal } from "@/components/Reveal";
 import { Banner, Crumb } from "@/components/blocks/Banner";
 import { Section, SectionHead } from "@/components/blocks/Section";
 import { Callout } from "@/components/blocks/Callout";
-import { Faq } from "@/components/blocks/Faq";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 const tiers = [
-  ["[KES ___]", "[a counselling session]"],
-  ["[KES ___]", "[transport to a safe house]"],
-  ["[KES ___]", "[a skills-training place]"],
+  ["KES 5,000", "Psychosocial support and counselling for a survivor"],
+  ["KES 15,000", "Skills and tools to help a young woman start a small business"],
+  ["KES 30,000", "A community dialogue to prevent gender-based violence"],
 ];
 const channels = [
   [<Smartphone size={20} strokeWidth={1.8} />, "M-Pesa (Lipa na M-Pesa)", "Paybill 400200 · Account 1201208"],
   [<Landmark size={20} strokeWidth={1.8} />, "Bank transfer", "Co-operative Bank · Arise Strong Together · A/C 01102079018001"],
 ] as const;
-const faqs = [
-  { q: "Is my donation secure?", a: "[Answer.]" },
-  { q: "Can I get a receipt / is my gift tax-deductible?", a: "[Answer.]" },
-  { q: "How is my money used?", a: "[Answer — link to reports.]" },
-  { q: "Can I donate in kind instead?", a: "[Answer.]" },
-  { q: "How do I cancel or change a monthly gift?", a: "[Answer.]" },
-];
+
 
 export default function Donate() {
   const [freq, setFreq] = useState<"one" | "monthly">("one");
   return (
     <>
       <Banner green crumb={<Crumb label="Donate" mid={{ to: "/get-involved", label: "Get Involved" }} />} eyebrow="Your gift helps a survivor rise" title="Donate"
-        text="Every donation — one-time or monthly — directly funds the support, skills, and safety that help survivors rebuild their lives." />
+        text="Every donation, one-time or monthly, directly funds the support, skills, and safety that help survivors rebuild their lives." />
 
       <Section>
         <div className="grid lg:grid-cols-[1fr_340px] gap-14 items-start">
@@ -53,7 +46,7 @@ export default function Donate() {
             </Reveal>
             <Reveal className="prose">
               <h2>Why donations matter</h2>
-              <p>As a [registered non-profit], we depend on people like you. Donations let us answer the helpline, keep programmes running, and reach survivors who have nowhere else to turn. Your support is not charity — it’s solidarity.</p>
+              <p>As a [registered non-profit], we depend on people like you. Donations let us answer the helpline, keep programmes running, and reach survivors who have nowhere else to turn. Your support is not charity, it’s solidarity.</p>
               <h2>How donations are used</h2>
               <ul>
                 <li><span className="text-ochre">[X]%</span> directly to survivor support and programmes</li>
@@ -65,7 +58,7 @@ export default function Donate() {
           <Reveal className="bg-plum text-white rounded-[14px] p-[26px] lg:sticky lg:top-[100px]">
             <h3 className="text-xl mb-2 text-white">Your impact</h3>
             <p className="text-[14.5px] text-white/[.88]">Right now, a survivor is deciding whether to reach out. Your gift makes sure someone is there when she does.</p>
-            <p className="text-white font-display text-xl leading-[1.3] mt-2">“Not charity — solidarity.”</p>
+            <p className="text-white font-display text-xl leading-[1.3] mt-2">“Not charity, solidarity.”</p>
           </Reveal>
         </div>
       </Section>
@@ -86,11 +79,9 @@ export default function Donate() {
       </Section>
 
       <Section>
-        <SectionHead eyebrow="Questions" title="Donation FAQ" />
-        <Reveal><Faq items={faqs} /></Reveal>
-        <Reveal className="mt-[34px] max-w-[760px] mx-auto">
+        <Reveal className="max-w-[760px] mx-auto">
           <Callout variant="calm" icon={<Heart size={22} strokeWidth={1.8} />} title="Thank you">
-            Your generosity means a survivor won’t have to face tomorrow alone. We’ll put your gift to work with care — and show you the difference it makes.
+            Your generosity means a survivor won’t have to face tomorrow alone. We’ll put your gift to work with care, and show you the difference it makes.
           </Callout>
         </Reveal>
       </Section>

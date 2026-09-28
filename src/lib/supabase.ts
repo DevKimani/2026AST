@@ -12,7 +12,7 @@ export const supabaseConfigured = Boolean(
 
 if (!supabaseConfigured) {
   console.warn(
-    "Supabase env vars not set — forms will not submit. " +
+    "Supabase env vars not set, forms will not submit. " +
       "Add VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY in .env.local and in Vercel."
   );
 }

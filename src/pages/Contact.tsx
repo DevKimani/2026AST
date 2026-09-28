@@ -44,7 +44,7 @@ export default function Contact() {
           <div>
             <Reveal className="mb-6">
               <Callout variant="warn" icon={<Shield size={18} strokeWidth={1.8} />} title="Seeking support?">
-                If you’re in danger or need help, please see our <Link to="/get-help" className="text-plum-deep font-semibold underline">Get Help</Link> page for confidential support. In an emergency, call [EMERGENCY NO.].
+                If you’re in danger or need help, please see our <Link to="/get-help" className="text-plum-deep font-semibold underline">Get Help</Link> page for confidential support. In an emergency, call 0180 740 140.
               </Callout>
             </Reveal>
 
@@ -81,7 +81,7 @@ export default function Contact() {
           <Reveal>
             <div className="bg-white border border-sage-line rounded-[14px] p-[26px] mb-5">
               <h3 className="text-xl mb-3">Our details</h3>
-              {[[<Mail size={20} strokeWidth={1.8} />, "[email address]"], [<Phone size={20} strokeWidth={1.8} />, "0180 740 140"], [<MapPin size={20} strokeWidth={1.8} />, "Samburu County, Kenya"], [<Clock size={20} strokeWidth={1.8} />, "[office hours]"]].map(([ic, t], i) => (
+              {[[<Mail size={20} strokeWidth={1.8} />, "arisestrongtogether@gmail.com"], [<Phone size={20} strokeWidth={1.8} />, "0180 740 140"], [<MapPin size={20} strokeWidth={1.8} />, "Samburu County, Kenya"]].map(([ic, t], i) => (
                 <p key={i} className="flex gap-2.5 items-start text-ink mb-2.5">{ic}<span>{t}</span></p>
               ))}
               <h4 className="font-sans text-[13px] tracking-[.1em] uppercase text-muted mb-2.5 mt-4">Follow us</h4>
