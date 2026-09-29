@@ -19,48 +19,54 @@ export function Header() {
   const [open, setOpen] = useState(false);
   const { t } = useTranslation();
   return (
-    <header className="sticky top-0 z-50 bg-paper/90 backdrop-blur-[10px] border-b border-sage-line">
-      <div className="mx-auto max-w-[1180px] px-7 flex items-center justify-between min-h-[74px] gap-5">
-        <Link to="/" className="flex items-center gap-[11px] font-display font-semibold text-xl text-forest">
-          <Logo size={42} /> Arise Strong Together
-        </Link>
+    <>
+      <header className="sticky top-0 z-50 bg-paper/90 backdrop-blur-[10px] border-b border-sage-line">
+        <div className="mx-auto max-w-[1180px] px-7 flex items-center justify-between min-h-[74px] gap-5">
+          <Link to="/" className="flex items-center gap-[11px] font-display font-semibold text-xl text-forest">
+            <Logo size={42} /> Arise Strong Together
+          </Link>
 
-        <nav className="hidden md:flex items-center gap-[26px]">
-          {links.map((l) => (
-            <NavLink
-              key={l.to}
-              to={l.to}
-              className={({ isActive }) =>
-                cn(
-                  "text-[15px] font-medium py-1.5 relative hover:text-forest",
-                  l.help ? "text-plum font-semibold" : "text-ink",
-                  isActive && "after:content-[''] after:absolute after:left-0 after:right-0 after:-bottom-0.5 after:h-0.5 after:rounded",
-                  isActive && (l.help ? "after:bg-plum" : "after:bg-forest")
-                )
-              }
-            >
-              {t(`nav.${l.key}`)}
-            </NavLink>
-          ))}
-        </nav>
+          <nav className="hidden md:flex items-center gap-[26px]">
+            {links.map((l) => (
+              <NavLink
+                key={l.to}
+                to={l.to}
+                className={({ isActive }) =>
+                  cn(
+                    "text-[15px] font-medium py-1.5 relative hover:text-forest",
+                    l.help ? "text-plum font-semibold" : "text-ink",
+                    isActive && "after:content-[''] after:absolute after:left-0 after:right-0 after:-bottom-0.5 after:h-0.5 after:rounded",
+                    isActive && (l.help ? "after:bg-plum" : "after:bg-forest")
+                  )
+                }
+              >
+                {t(`nav.${l.key}`)}
+              </NavLink>
+            ))}
+          </nav>
 
-        <Button to="/donate" className="hidden md:inline-flex">{t("nav.donate")}</Button>
+          <Button to="/donate" className="hidden md:inline-flex">{t("nav.donate")}</Button>
 
-        <button className="md:hidden text-forest" aria-label="Open menu" onClick={() => setOpen(true)}>
-          <Menu size={26} />
-        </button>
-      </div>
+          <button className="md:hidden text-forest" aria-label="Open menu" onClick={() => setOpen(true)}>
+            <Menu size={26} />
+          </button>
+        </div>
+      </header>
 
+      {/* Mobile menu — rendered OUTSIDE <header> so `fixed` fills the viewport
+          (a backdrop-filter on the header would otherwise trap it). */}
       {open && (
-        <div className="fixed inset-0 z-[60] md:hidden bg-cream flex flex-col">
-          <div className="flex items-center justify-between px-7 min-h-[74px] border-b border-sage-line">
-            <span className="flex items-center gap-[11px] font-display font-semibold text-xl text-forest"><Logo size={38} /> Arise Strong Together</span>
+        <div className="fixed inset-0 z-[80] md:hidden bg-cream flex flex-col overflow-y-auto">
+          <div className="flex items-center justify-between px-7 min-h-[64px] border-b border-sage-line shrink-0">
+            <span className="flex items-center gap-[10px] font-display font-semibold text-lg text-forest">
+              <Logo size={34} /> Arise Strong Together
+            </span>
             <button className="text-forest" aria-label="Close menu" onClick={() => setOpen(false)}><X size={28} /></button>
           </div>
-          <nav className="flex-1 overflow-y-auto px-7 py-4 flex flex-col">
+          <nav className="flex-1 px-7 py-2 flex flex-col">
             {[...links, { to: "/volunteer", key: "volunteer" }].map((l) => (
               <Link key={l.to} to={l.to} onClick={() => setOpen(false)}
-                className={cn("py-[15px] text-[18px] font-medium border-b border-sage-line", (l as any).help && "text-terracotta font-semibold")}>
+                className={cn("py-[14px] text-[18px] font-medium border-b border-sage-line", (l as any).help && "text-terracotta font-semibold")}>
                 {t(`nav.${l.key}`)}
               </Link>
             ))}
@@ -71,6 +77,6 @@ export function Header() {
           </nav>
         </div>
       )}
-    </header>
+    </>
   );
 }
