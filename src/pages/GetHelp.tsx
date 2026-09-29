@@ -54,7 +54,7 @@ export default function GetHelp() {
       <Section variant="sage">
         <Reveal className="max-w-[840px] mx-auto text-center">
           <Eyebrow center>If it’s not for you</Eyebrow>
-          <h2 className="text-[clamp(26px,3.2vw,38px)] mt-3.5">Helpline &amp; referrals</h2>
+          <h2 className="text-[clamp(22px,5vw,38px)] mt-3.5">Helpline &amp; referrals</h2>
           <p className="text-lg text-muted mt-[18px]">A directory of trusted services, national GBV hotline, police gender desk, nearest safe houses, legal aid, and health services. [Add the referral directory here.]</p>
         </Reveal>
       </Section>

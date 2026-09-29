@@ -87,7 +87,7 @@ export default function Volunteer() {
         <div className="max-w-[760px] mx-auto">
           <Reveal className="mb-[26px]">
             <Eyebrow>Register your interest</Eyebrow>
-            <h2 className="text-[clamp(26px,3.2vw,38px)] mt-3.5">Volunteer Registration</h2>
+            <h2 className="text-[clamp(22px,5vw,38px)] mt-3.5">Volunteer Registration</h2>
           </Reveal>
           {status === "sent" ? (
             <Reveal>

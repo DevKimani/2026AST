@@ -49,9 +49,9 @@ export default function Donate() {
               <p>As a [registered non-profit], we depend on people like you. Donations let us answer the helpline, keep programmes running, and reach survivors who have nowhere else to turn. Your support is not charity, it’s solidarity.</p>
               <h2>How donations are used</h2>
               <ul>
-                <li><span className="text-ochre">[X]%</span> directly to survivor support and programmes</li>
-                <li><span className="text-ochre">[X]%</span> to community prevention and advocacy</li>
-                <li><span className="text-ochre">[X]%</span> to running the organisation</li>
+                <li><span className="text-ochre">70%</span> directly to survivor support and programmes</li>
+                <li><span className="text-ochre">20%</span> to community prevention and advocacy</li>
+                <li><span className="text-ochre">10%</span> to running the organisation</li>
               </ul>
             </Reveal>
           </div>

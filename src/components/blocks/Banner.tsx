@@ -20,7 +20,7 @@ export function Banner({ green, crumb, eyebrow, title, text }: { green?: boolean
       <div className={cn("mx-auto max-w-[1180px] px-7 pt-[52px] pb-14", green && "[&_a]:text-[#bfe0d3]")}>
         {crumb && <div className={cn(green && "text-[#bfe0d3] [&_.text-muted]:text-[#bfe0d3] [&_span]:text-[#bfe0d3]")}>{crumb}</div>}
         {eyebrow && <div className="mt-3.5"><Eyebrow className={green ? "text-[#bfe0d3]" : ""}>{eyebrow}</Eyebrow></div>}
-        <h1 className="text-[clamp(32px,4.4vw,50px)] tracking-[-.015em] mt-3.5">{title}</h1>
+        <h1 className="text-[clamp(24px,6vw,50px)] tracking-[-.015em] mt-3.5">{title}</h1>
         {text && <p className={cn("mt-4 text-lg max-w-[60ch]", green ? "text-[#cfe4db]" : "text-muted")}>{text}</p>}
       </div>
     </div>

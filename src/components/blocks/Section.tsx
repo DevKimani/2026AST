@@ -30,7 +30,7 @@ export function SectionHead({ eyebrow, title, className }: { eyebrow: string; ti
   return (
     <div className={cn("max-w-[840px] mx-auto text-center mb-11", className)}>
       <Eyebrow center>{eyebrow}</Eyebrow>
-      <h2 className="text-[clamp(26px,3.2vw,38px)] mt-3.5 tracking-[-.01em]">{title}</h2>
+      <h2 className="text-[clamp(22px,5vw,38px)] mt-3.5 tracking-[-.01em]">{title}</h2>
     </div>
   );
 }

@@ -23,14 +23,14 @@ export default function GetInvolved() {
       <Section variant="sage" id="partner">
         <SectionHead eyebrow="For organisations" title="Partnership Opportunities" />
         <div className="grid gap-[22px] md:grid-cols-2">
-          <Reveal><Card title="Corporate partnerships">[CSR programmes, employee engagement, cause marketing, matched giving]</Card></Reveal>
-          <Reveal><Card title="Institutional & development partners">[Grants, programme collaboration, technical support]</Card></Reveal>
-          <Reveal><Card title="Sponsorship">[Sponsor a programme, an event, or a survivor’s journey]</Card></Reveal>
-          <Reveal><Card title="In-kind donations">[Goods, services, professional skills, venue or equipment]</Card></Reveal>
+          <Reveal><Card title="Corporate partnerships">Bring your business behind a cause your team and customers care about, through CSR programmes, employee engagement, cause marketing, or matched giving.</Card></Reveal>
+          <Reveal><Card title="Institutional & development partners">Collaborate with us on grants, joint programmes, and technical support that strengthen survivor services across Samburu County.</Card></Reveal>
+          <Reveal><Card title="Sponsorship">Sponsor a programme, an event, or a survivor’s journey, and see exactly how your support changes lives.</Card></Reveal>
+          <Reveal><Card title="In-kind donations">Give goods, services, professional skills, or the use of a venue or equipment, support that stretches just as far as cash.</Card></Reveal>
         </div>
         <Reveal className="mt-[26px]">
           <Callout variant="calm" icon={<Shield size={22} strokeWidth={1.8} />} title="Why partner with us">
-            [2–3 sentences on the value of partnering, reach, credibility, measurable impact, alignment with SDG 5 / gender equality.]
+            As a survivor-led organisation rooted in Samburu County, we pair lived experience with professional counselling to reach women and girls that other services miss. Partnering with us means real, measurable local impact, a trusted presence in the community, and a direct contribution to SDG 5 and a future free from gender-based violence.
           </Callout>
         </Reveal>
       </Section>

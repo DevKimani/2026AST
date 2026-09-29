@@ -26,7 +26,7 @@ export default function Home() {
             <span className="inline-flex items-center gap-[9px] text-[12.5px] tracking-[.16em] uppercase font-semibold text-[#f0d9b0] before:content-[''] before:w-5 before:h-[1.5px] before:bg-ochre">
               Samburu County, Kenya
             </span>
-            <h1 className="text-[clamp(40px,5.4vw,62px)] tracking-[-.015em] mt-5 text-white">
+            <h1 className="text-[clamp(30px,7vw,62px)] tracking-[-.015em] mt-5 text-white">
               From Surviving to{" "}
               <span className="relative text-[#e8b877] whitespace-nowrap">
                 Thriving
@@ -75,7 +75,7 @@ export default function Home() {
         <div className="grid lg:grid-cols-[1fr_1fr] gap-14 items-center">
           <Reveal>
             <Eyebrow>Our mission</Eyebrow>
-            <h2 className="text-[clamp(26px,3.2vw,38px)] mt-3.5 tracking-[-.01em]">Standing with women &amp; girls when they need it most</h2>
+            <h2 className="text-[clamp(22px,5vw,38px)] mt-3.5 tracking-[-.01em]">Standing with women &amp; girls when they need it most</h2>
             <p className="text-lg text-muted mt-5">Arise Strong Together is a survivor-founded community-based organisation in Samburu County, registered in June 2025. We combine professional counselling with lived experience, walking with survivors through healing while working alongside women, youth, and the wider community to prevent violence.</p>
             <Link to="/about" className="inline-flex items-center gap-2 font-semibold text-terracotta mt-6 hover:gap-3 transition-[gap]">Learn our story <ArrowRight size={17} /></Link>
           </Reveal>
@@ -99,7 +99,7 @@ export default function Home() {
         <Reveal className="flex justify-between items-end gap-5 mb-[42px] flex-wrap">
           <div>
             <Eyebrow>What we do</Eyebrow>
-            <h2 className="text-[clamp(26px,3.2vw,38px)] mt-3.5 max-w-[16ch]">Holistic programs for lasting change</h2>
+            <h2 className="text-[clamp(22px,5vw,38px)] mt-3.5 max-w-[16ch]">Holistic programs for lasting change</h2>
           </div>
           <Link to="/programs" className="inline-flex items-center gap-2 font-semibold text-base px-6 py-[14px] rounded-[10px] bg-transparent text-forest border-[1.5px] border-sage-line hover:border-forest hover:bg-sage transition-colors">All programs</Link>
         </Reveal>
@@ -116,7 +116,7 @@ export default function Home() {
         <div className="grid lg:grid-cols-[1.1fr_.9fr] gap-12 items-center">
           <Reveal>
             <Eyebrow className="text-[#e8c9a6]">Turning pain into purpose</Eyebrow>
-            <blockquote className="font-display text-[clamp(24px,2.8vw,32px)] leading-[1.32] mt-[18px]">“My survival was never meant to be a private victory, it was a blueprint for helping others.”</blockquote>
+            <blockquote className="font-display text-[clamp(20px,4.8vw,32px)] leading-[1.32] mt-[18px]">“My survival was never meant to be a private victory, it was a blueprint for helping others.”</blockquote>
             <div className="mt-[22px] text-[14.5px] text-[#d8c4ad]">Peris Njoroge, Founder of Arise Strong Together · survivor and counsellor</div>
           </Reveal>
           <Reveal><Photo src="/images/story.jpg" alt="Founder of Arise Strong Together" className="aspect-[5/4]" /></Reveal>
