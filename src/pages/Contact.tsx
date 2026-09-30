@@ -44,7 +44,7 @@ export default function Contact() {
           <div>
             <Reveal className="mb-6">
               <Callout variant="warn" icon={<Shield size={18} strokeWidth={1.8} />} title="Seeking support?">
-                If you’re in danger or need help, please see our <Link to="/get-help" className="text-plum-deep font-semibold underline">Get Help</Link> page for confidential support. In an emergency, call 0180 740 140.
+                If you’re in danger or need help, please see our <Link to="/get-help" className="text-plum-deep font-semibold underline">Get Help</Link> page for confidential support. In an emergency, call 999.
               </Callout>
             </Reveal>
 

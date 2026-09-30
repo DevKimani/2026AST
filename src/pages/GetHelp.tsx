@@ -16,7 +16,7 @@ export default function GetHelp() {
           <div>
             <Reveal className="mb-[22px]">
               <Callout variant="urgent" icon={<Phone size={18} strokeWidth={1.8} />} title="I need help now">
-                If you are in immediate danger, call <strong>0180 740 140</strong>. To reach us in confidence, call <strong>0180 740 140</strong> or message us on Instagram <a href="https://www.instagram.com/arisestrongtogether/" target="_blank" rel="noopener noreferrer" className="underline">@arisestrongtogether</a>.
+                If you are in immediate danger, call <strong>999</strong>. To reach us in confidence, call <strong>0180 740 140</strong> or message us on Instagram <a href="https://www.instagram.com/arisestrongtogether/" target="_blank" rel="noopener noreferrer" className="underline">@arisestrongtogether</a>.
               </Callout>
             </Reveal>
             <Reveal className="prose">
