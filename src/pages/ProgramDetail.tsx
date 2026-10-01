@@ -1,63 +1,182 @@
-import { useParams, Navigate } from "react-router-dom";
-import { Heart } from "lucide-react";
+import {
+  useParams,
+  Navigate,
+} from "react-router-dom";
+
+import {
+  ShieldCheck,
+  MessageCircle,
+} from "lucide-react";
+
 import { Reveal } from "@/components/Reveal";
-import { Banner, Crumb } from "@/components/blocks/Banner";
-import { Section, SectionHead } from "@/components/blocks/Section";
+
+import {
+  Banner,
+  Crumb,
+} from "@/components/blocks/Banner";
+
+import { Section } from "@/components/blocks/Section";
+
 import { Callout } from "@/components/blocks/Callout";
+
 import { Button } from "@/components/ui/button";
+
 import { CtaBand } from "@/components/blocks/CtaBand";
-import { Photo } from "@/components/Photo";
-import { cn } from "@/lib/utils";
+
 import { getProgram } from "@/data/programs";
 
 export default function ProgramDetail() {
   const { slug } = useParams();
-  const p = getProgram(slug);
-  if (!p) return <Navigate to="/programs" replace />;
+
+  const program =
+    getProgram(slug);
+
+  if (!program) {
+    return (
+      <Navigate
+        to="/programs"
+        replace
+      />
+    );
+  }
+
+  const isGbvResponse =
+    program.slug === "gbv";
 
   return (
     <>
-      <Banner green crumb={<Crumb label={p.name} mid={{ to: "/programs", label: "Programs" }} />} eyebrow="Programme" title={p.name} text={p.intro} />
-      <Section>
-        <div className="grid lg:grid-cols-[1fr_340px] gap-14 items-start">
-          <Reveal className="prose">
-            <h2>{p.heading1}</h2>
-            <ul>{p.list1.map((x, i) => <li key={i}>{x}</li>)}</ul>
-            <h2>{p.heading2}</h2>
-            <ul>{p.list2.map((x, i) => <li key={i}>{x}</li>)}</ul>
-            <h2>Who we support</h2>
-            <p>{p.who}</p>
-            <div className="mt-5">
-              <Callout variant="calm" icon={<Heart size={22} strokeWidth={1.8} />} title="A story of change">
-                <span className="italic">“[Template only, a real, consented survivor story goes here, using a pseudonym or full anonymity at the survivor’s choice.]”</span>
-              </Callout>
-            </div>
-          </Reveal>
-          <Reveal className="bg-white border border-sage-line rounded-[14px] p-[26px] lg:sticky lg:top-[100px]">
-            <h3 className="text-xl mb-3">Outcomes</h3>
-            {p.outcomes.map((o, i) => (
-              <p key={i} className="mb-3.5"><span className="font-display text-2xl text-ochre">{o.n}</span><br /><span className="text-[13px] text-muted">{o.l}</span></p>
-            ))}
-            <p className="text-[13px] text-muted italic mb-3">Placeholder figures, verify before launch.</p>
-            <Button to="/get-help" variant="help" className="w-full justify-center">Get support</Button>
-          </Reveal>
-        </div>
-      </Section>
+      <Banner
+        green
+        crumb={
+          <Crumb
+            label={program.name}
+            mid={{
+              to: "/programs",
+              label: "Programs",
+            }}
+          />
+        }
+        eyebrow="Programme"
+        title={program.name}
+        text={program.intro}
+      />
 
-      {/* Programme in action, real photos where we have them, placeholders elsewhere */}
-      <Section variant="sage">
-        <SectionHead eyebrow="In the community" title="Programme in action" />
-        {p.images?.length ? (
-          <div className={cn("grid gap-6", p.images.length > 1 ? "md:grid-cols-2" : "max-w-[760px] mx-auto")}>
-            {p.images.map((src, i) => (
-              <Reveal key={i}><Photo src={src} alt={`${p.name} activity in Samburu County`} className="aspect-[4/3]" /></Reveal>
-            ))}
-          </div>
-        ) : (
-          <Reveal className="max-w-[820px] mx-auto">
-            <Photo alt={`${p.name} activity`} caption="Add a photo of this programme" className="aspect-[16/9]" />
+      <Section>
+
+        <div className="grid lg:grid-cols-[1fr_340px] gap-14 items-start">
+
+          <Reveal className="prose">
+
+            <h2>
+              {program.heading1}
+            </h2>
+
+            <ul>
+              {program.list1.map(
+                (item) => (
+                  <li key={item}>
+                    {item}
+                  </li>
+                )
+              )}
+            </ul>
+
+            <h2>
+              {program.heading2}
+            </h2>
+
+            <ul>
+              {program.list2.map(
+                (item) => (
+                  <li key={item}>
+                    {item}
+                  </li>
+                )
+              )}
+            </ul>
+
+            <h2>
+              Who this programme is for
+            </h2>
+
+            <p>
+              {program.who}
+            </p>
+
+            <div className="mt-5">
+
+              <Callout
+                variant="calm"
+                icon={
+                  <ShieldCheck
+                    size={22}
+                    strokeWidth={1.8}
+                  />
+                }
+                title="Dignity before storytelling"
+              >
+
+                No one is required to share a
+                personal story publicly in order to
+                receive support or take part in AST's
+                work. If a personal story is ever
+                shared publicly, it should be based
+                on informed consent and the level of
+                anonymity or identification chosen by
+                the person involved.
+
+              </Callout>
+
+            </div>
+
           </Reveal>
-        )}
+
+          <Reveal className="bg-white border border-sage-line rounded-[14px] p-[26px] lg:sticky lg:top-[100px]">
+
+            <MessageCircle
+              size={24}
+              strokeWidth={1.8}
+              className="text-forest"
+            />
+
+            <h3 className="text-xl mt-3 mb-2">
+              {isGbvResponse
+                ? "Need support?"
+                : "Interested in this programme?"}
+            </h3>
+
+            <p className="text-[14.5px] text-muted mb-5">
+
+              {isGbvResponse
+                ? "You do not need to decide exactly what kind of support you need before reaching out. Start with our support page and choose the contact option that feels safest for you."
+                : "Programme activities depend on current capacity, location, participant needs, and available partnerships. Contact AST to ask what is currently available or to discuss collaboration."}
+
+            </p>
+
+            <Button
+              to={
+                isGbvResponse
+                  ? "/get-help"
+                  : "/contact"
+              }
+              variant={
+                isGbvResponse
+                  ? "help"
+                  : "primary"
+              }
+              className="w-full justify-center"
+            >
+
+              {isGbvResponse
+                ? "Get support"
+                : "Contact AST"}
+
+            </Button>
+
+          </Reveal>
+
+        </div>
+
       </Section>
 
       <CtaBand />
