@@ -16,6 +16,7 @@ import Donate from "@/pages/Donate";
 import Contact from "@/pages/Contact";
 import Blog from "@/pages/Blog";
 import Privacy from "@/pages/Privacy";
+import NotFound from "@/pages/NotFound";
 
 export default function App() {
   return (
@@ -45,12 +46,16 @@ export default function App() {
 
         <Route
           path="/programs/:slug"
-          element={<ProgramDetail />}
+          element={
+            <ProgramDetail />
+          }
         />
 
         <Route
           path="/get-involved"
-          element={<GetInvolved />}
+          element={
+            <GetInvolved />
+          }
         />
 
         <Route
@@ -80,7 +85,7 @@ export default function App() {
 
         <Route
           path="*"
-          element={<Home />}
+          element={<NotFound />}
         />
 
       </Route>

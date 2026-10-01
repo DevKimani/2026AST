@@ -9,68 +9,25 @@ import { SafetyBar } from "./SafetyBar";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 
+import { Seo } from "@/components/seo/Seo";
+
 import { quickExit } from "@/lib/quickExit";
 
 export function Layout() {
-  const { pathname } = useLocation();
+  const { pathname } =
+    useLocation();
 
   useEffect(() => {
     window.scrollTo(0, 0);
-
-    const base =
-      "Arise Strong Together";
-
-    const titles: Record<
-      string,
-      string
-    > = {
-      "/":
-        "Supporting Survivors of Gender-Based Violence",
-
-      "/about":
-        "About Us",
-
-      "/get-help":
-        "Get Help",
-
-      "/programs":
-        "Programs",
-
-      "/get-involved":
-        "Get Involved",
-
-      "/volunteer":
-        "Volunteer",
-
-      "/donate":
-        "Donate",
-
-      "/contact":
-        "Contact",
-
-      "/blog":
-        "News & Stories",
-
-      "/privacy":
-        "Privacy & Safer Browsing",
-    };
-
-    const t =
-      titles[pathname];
-
-    document.title =
-      t
-        ? `${t} | ${base}`
-        : base;
-
   }, [pathname]);
 
   useEffect(() => {
-
     const onKey = (
       e: KeyboardEvent
     ) => {
-      if (e.key === "Escape") {
+      if (
+        e.key === "Escape"
+      ) {
         quickExit();
       }
     };
@@ -90,6 +47,8 @@ export function Layout() {
 
   return (
     <>
+      <Seo />
+
       <SafetyBar />
 
       <Header />
