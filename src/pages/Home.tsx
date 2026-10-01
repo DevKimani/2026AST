@@ -20,7 +20,6 @@ import {
   Stat,
 } from "@/components/blocks/Cards";
 import { CtaBand } from "@/components/blocks/CtaBand";
-import { DonateWidget } from "@/components/blocks/DonateWidget";
 import { Photo } from "@/components/Photo";
 
 export default function Home() {
@@ -61,9 +60,9 @@ export default function Home() {
 
         </div>
 
-        <div className="mx-auto max-w-[1180px] px-7 grid lg:grid-cols-[1.05fr_.9fr] gap-12 items-center pt-14 pb-20 min-h-[560px]">
+        <div className="mx-auto max-w-[1180px] px-7 pt-14 pb-20 min-h-[560px] flex items-center">
 
-          <div className="text-white reveal in">
+          <div className="text-white reveal in max-w-[720px]">
 
             <span className="inline-flex items-center gap-[9px] text-[12.5px] tracking-[.16em] uppercase font-semibold text-[#f0d9b0] before:content-[''] before:w-5 before:h-[1.5px] before:bg-ochre">
               Samburu County, Kenya
@@ -126,6 +125,13 @@ export default function Home() {
               </Link>
 
             </div>
+            <Link
+                to="/donate"
+                 className="inline-flex items-center gap-2 mt-5 text-white/85 font-semibold hover:text-white transition-colors"
+                 >
+                  Support our work
+                  <ArrowRight size={16} />
+            </Link>
 
             <div className="mt-6 text-[14.5px] text-white/80 flex items-center gap-2.5">
 
@@ -139,10 +145,6 @@ export default function Home() {
 
             </div>
 
-          </div>
-
-          <div className="reveal in">
-            <DonateWidget />
           </div>
 
         </div>
@@ -437,6 +439,33 @@ export default function Home() {
         </div>
 
       </Section>
+      <Section variant="sage">
+  <Reveal className="max-w-[760px] mx-auto text-center">
+
+    <Eyebrow>
+      Support the work
+    </Eyebrow>
+
+    <h2 className="text-[clamp(24px,5vw,38px)] mt-3.5">
+      Help us keep survivor-centred support available
+    </h2>
+
+    <p className="text-muted text-lg mt-4 max-w-[58ch] mx-auto">
+      Your contribution helps Arise Strong Together
+      sustain survivor support, prevention,
+      skills-building, and community programmes.
+    </p>
+
+    <Link
+      to="/donate"
+      className="inline-flex items-center gap-2 mt-7 font-semibold text-white bg-forest px-6 py-3.5 rounded-[10px] hover:bg-forest-deep transition-colors"
+    >
+      Donate
+      <ArrowRight size={17} />
+    </Link>
+
+  </Reveal>
+</Section>
 
       <CtaBand />
     </>
