@@ -1,135 +1,393 @@
-import { useState, useRef, useEffect } from "react";
-import { Heart, Smartphone, CreditCard, CheckCircle2, Loader2 } from "lucide-react";
-import { cn } from "@/lib/utils";
-import { startDonation, getDonationStatus, paymentsEnabled } from "@/lib/donations";
-import { CURRENCIES, type Currency, detectCurrency, saveCurrency } from "@/lib/currency";
+import {
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
+import {
+  Heart,
+  Smartphone,
+  CreditCard,
+  CheckCircle2,
+  Loader2,
+  ShieldCheck,
+} from "lucide-react";
+import { useSearchParams } from "react-router-dom";
 
-type Status = "idle" | "sending" | "stk_sent" | "success" | "failed" | "error";
-const clean = (a: string) => a.replace(/[^0-9.]/g, "");
-const fmt = (sym: string, a: string) => (sym.length > 1 ? `${sym} ${a}` : `${sym}${a}`);
+import { cn } from "@/lib/utils";
+import {
+  startDonation,
+  getDonationStatus,
+  paymentsEnabled,
+} from "@/lib/donations";
+
+type Status =
+  | "idle"
+  | "checking"
+  | "sending"
+  | "success"
+  | "failed"
+  | "error";
+
+const cleanAmount = (value: string) =>
+  value.replace(/[^0-9.]/g, "");
+
+const formatAmount = (
+  symbol: string,
+  value: string
+) =>
+  symbol.length > 1
+    ? `${symbol} ${value}`
+    : `${symbol}${value}`;
+
+const inputClass =
+  "w-full text-[15px] px-3.5 py-3 border-[1.5px] border-sage-line rounded-[10px] bg-white text-ink focus:border-terracotta focus:outline-none";
+
+const labelClass =
+  "text-[13px] font-semibold text-ink mb-1.5 block";
+
+function normaliseKenyanPhone(value: string) {
+  const digits = value.replace(/\D/g, "");
+
+  if (digits.startsWith("254") && digits.length === 12) {
+    return digits;
+  }
+
+  if (digits.startsWith("0") && digits.length === 10) {
+    return `254${digits.slice(1)}`;
+  }
+
+  if (digits.length === 9 && digits.startsWith("7")) {
+    return `254${digits}`;
+  }
+
+  return "";
+}
 
 export function DonateWidget() {
-  const [freq, setFreq] = useState<"once" | "monthly">("once");
-  const [method, setMethod] = useState<"mpesa" | "card">("mpesa");
-  const [selCurrency, setSelCurrency] = useState<Currency>("KES");
-  const [amount, setAmount] = useState("1,000");
+  const [searchParams] = useSearchParams();
+  const returnedRef = searchParams.get("ref");
+
+  const [method, setMethod] =
+    useState<"mpesa" | "card">("mpesa");
+
+  const [amount, setAmount] =
+    useState("1,000");
+
   const [phone, setPhone] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<Status>("idle");
-  const [msg, setMsg] = useState("");
-  const timer = useRef<number | null>(null);
 
-  // M-Pesa is always KES; card uses the visitor's (or chosen) currency.
-  const currency: Currency = method === "mpesa" ? "KES" : selCurrency;
-  const cfg = CURRENCIES[currency];
+  const [status, setStatus] =
+    useState<Status>(returnedRef ? "checking" : "idle");
 
-  // Detect location-based currency once; steer international visitors to card.
+  const [message, setMessage] = useState("");
+
+  const currency = "KES" as const;
+  const presets = ["500", "1,000", "2,500", "5,000"];
+
+  const amountNumber = useMemo(
+    () => Number(cleanAmount(amount)),
+    [amount]
+  );
+
   useEffect(() => {
-    let live = true;
-    detectCurrency().then((c) => {
-      if (!live) return;
-      setSelCurrency(c);
-      if (c !== "KES") setMethod("card");
-    });
-    return () => { live = false; };
-  }, []);
+    if (!returnedRef) return;
 
-  // Reset the amount to a sensible preset whenever the effective currency changes.
-  useEffect(() => { setAmount(CURRENCIES[currency].presets[1]); }, [currency]);
-  useEffect(() => () => { if (timer.current) window.clearTimeout(timer.current); }, []);
+    let cancelled = false;
+    let attempts = 0;
+    let timer: number | undefined;
 
-  async function poll(ref: string, tries = 0) {
-    if (tries > 8) { setStatus("failed"); setMsg("We didn’t get confirmation in time. If you completed the payment, we’ll still receive it."); return; }
-    const { status: s } = await getDonationStatus(ref);
-    if (s === "paid") { setStatus("success"); return; }
-    if (s === "failed" || s === "cancelled") { setStatus("failed"); setMsg("The payment didn’t go through. Please try again."); return; }
-    timer.current = window.setTimeout(() => poll(ref, tries + 1), 4000);
-  }
+    async function check() {
+      if (cancelled) return;
+
+      const result = await getDonationStatus(returnedRef!);
+
+      if (cancelled) return;
+
+      if (result.status === "paid") {
+        setStatus("success");
+        setMessage("");
+        return;
+      }
+
+      if (
+        result.status === "failed" ||
+        result.status === "cancelled"
+      ) {
+        setStatus("failed");
+        setMessage(
+          "The payment was not completed. You can try again below."
+        );
+        return;
+      }
+
+      attempts += 1;
+
+      if (attempts >= 6) {
+        setStatus("idle");
+        setMessage(
+          "We have not received payment confirmation yet. If you completed the payment, please allow a little time for the status to update."
+        );
+        return;
+      }
+
+      timer = window.setTimeout(check, 3000);
+    }
+
+    check();
+
+    return () => {
+      cancelled = true;
+      if (timer) window.clearTimeout(timer);
+    };
+  }, [returnedRef]);
 
   async function onProceed() {
-    if (!paymentsEnabled()) { setStatus("error"); setMsg("Payments aren’t configured yet. Add your gateway keys to enable giving."); return; }
-    if (!clean(amount)) { setStatus("error"); setMsg("Please enter an amount."); return; }
-    if (method === "mpesa" && !phone) { setStatus("error"); setMsg("Enter the M-Pesa phone number to receive the prompt."); return; }
-    setStatus("sending"); setMsg("");
+    if (!paymentsEnabled()) {
+      setStatus("error");
+      setMessage(
+        "Online payments are not configured yet. Please use the direct M-Pesa or bank details on the Donate page."
+      );
+      return;
+    }
+
+    if (!Number.isFinite(amountNumber) || amountNumber <= 0) {
+      setStatus("error");
+      setMessage("Please enter a valid donation amount.");
+      return;
+    }
+
+    if (method === "mpesa") {
+      const normalised = normaliseKenyanPhone(phone);
+
+      if (!normalised) {
+        setStatus("error");
+        setMessage(
+          "Enter a valid Kenyan M-Pesa number, for example 0712 345 678."
+        );
+        return;
+      }
+    }
+
+    setStatus("sending");
+    setMessage("");
+
     try {
-      const r = await startDonation({ amount: clean(amount), currency, frequency: freq, method, name, email, phone });
-      if (r.mode === "redirect" && r.checkout_url) { window.location.href = r.checkout_url; return; }
-      setStatus("stk_sent"); setMsg("Check your phone and enter your M-Pesa PIN to complete the gift.");
-      poll(r.reference);
-    } catch (e) { setStatus("error"); setMsg(e instanceof Error ? e.message : "Something went wrong."); }
+      const result = await startDonation({
+        amount: cleanAmount(amount),
+        currency,
+        method,
+        name: name.trim() || undefined,
+        email: email.trim() || undefined,
+        phone:
+          method === "mpesa"
+            ? normaliseKenyanPhone(phone)
+            : undefined,
+      });
+
+      window.location.assign(result.checkout_url);
+    } catch (error) {
+      setStatus("error");
+      setMessage(
+        error instanceof Error
+          ? error.message
+          : "Something went wrong starting the payment."
+      );
+    }
   }
 
   if (status === "success") {
     return (
       <div className="bg-cream rounded-[18px] p-7 shadow-[0_30px_60px_-30px_rgba(0,0,0,.5)] border border-sage-line text-center">
-        <CheckCircle2 className="mx-auto text-forest mb-3" size={40} />
-        <h3 className="text-[22px] text-forest">Thank you</h3>
-        <p className="text-muted text-[15px] mt-2">Your gift means a survivor won’t face tomorrow alone. A receipt is on its way if you gave an email.</p>
+        <CheckCircle2
+          className="mx-auto text-forest mb-3"
+          size={40}
+          strokeWidth={1.8}
+        />
+
+        <h3 className="text-[22px] text-forest">
+          Thank you for your donation
+        </h3>
+
+        <p className="text-muted text-[15px] mt-2">
+          Your payment has been confirmed. If you provided an email address, a receipt may also be sent to you.
+        </p>
       </div>
     );
   }
 
-  const inputCls = "w-full text-[15px] px-3.5 py-3 border-[1.5px] border-sage-line rounded-[10px] bg-white focus:border-terracotta focus:outline-none";
-  const busy = status === "sending" || status === "stk_sent";
+  const busy =
+    status === "sending" || status === "checking";
 
   return (
     <div className="bg-cream rounded-[18px] p-7 shadow-[0_30px_60px_-30px_rgba(0,0,0,.5)] border border-sage-line">
       <div className="flex items-center gap-2.5 mb-4">
-        <span className="w-9 h-9 rounded-full bg-terracotta flex items-center justify-center text-white"><Heart size={18} /></span>
-        <h3 className="text-[22px] text-forest">Make a Donation</h3>
+        <span className="w-9 h-9 rounded-full bg-terracotta flex items-center justify-center text-white">
+          <Heart size={18} />
+        </span>
+
+        <div>
+          <h3 className="text-[22px] text-forest">
+            Make a Donation
+          </h3>
+          <p className="text-xs text-muted mt-0.5">
+            One-time giving
+          </p>
+        </div>
       </div>
 
-      <div className="inline-flex w-full bg-sage rounded-xl p-[5px] gap-1 mb-3">
-        {(["once", "monthly"] as const).map((f) => (
-          <button key={f} onClick={() => setFreq(f)} className={cn("flex-1 font-semibold text-[14px] py-2.5 rounded-[9px] transition-colors", freq === f ? "bg-terracotta text-white" : "text-muted")}>
-            {f === "once" ? "One-time" : "Monthly"}
+      <div className="grid grid-cols-2 gap-2.5 mb-4">
+        {(
+          [
+            ["mpesa", "M-Pesa", Smartphone],
+            ["card", "Card", CreditCard],
+          ] as const
+        ).map(([value, label, Icon]) => (
+          <button
+            key={value}
+            type="button"
+            onClick={() => setMethod(value)}
+            className={cn(
+              "py-2.5 rounded-[10px] border-[1.5px] font-semibold text-[14px] inline-flex items-center justify-center gap-2 transition-colors",
+              method === value
+                ? "border-terracotta bg-terracotta/10 text-terracotta"
+                : "border-sage-line bg-white text-ink hover:border-terracotta"
+            )}
+          >
+            <Icon size={16} />
+            {label}
           </button>
         ))}
       </div>
 
-      {/* payment method */}
-      <div className="grid grid-cols-2 gap-2.5 mb-3">
-        {([["mpesa", "M-Pesa", Smartphone], ["card", "Card", CreditCard]] as const).map(([m, label, Ic]) => (
-          <button key={m} onClick={() => setMethod(m)} className={cn("py-2.5 rounded-[10px] border-[1.5px] font-semibold text-[14px] inline-flex items-center justify-center gap-2 transition-colors", method === m ? "border-terracotta bg-terracotta/10 text-terracotta" : "border-sage-line bg-white text-ink hover:border-terracotta")}>
-            <Ic size={16} /> {label}
-          </button>
-        ))}
-      </div>
-
-      {/* amount + currency */}
       <div className="flex items-center justify-between mb-2">
-        <p className="text-[12px] uppercase tracking-[.1em] text-muted">Select amount</p>
-        {method === "card" ? (
-          <select value={selCurrency} onChange={(e) => { const c = e.target.value as Currency; setSelCurrency(c); saveCurrency(c); }}
-            className="text-[13px] font-semibold text-forest bg-white border border-sage-line rounded-md px-2 py-1 focus:border-terracotta focus:outline-none">
-            {(Object.keys(CURRENCIES) as Currency[]).map((c) => <option key={c} value={c}>{c}</option>)}
-          </select>
-        ) : (
-          <span className="text-[12px] text-muted">Charged in KES</span>
-        )}
+        <p className="text-[12px] uppercase tracking-[.1em] text-muted">
+          Select amount
+        </p>
+
+        <span className="text-[12px] text-muted">
+          Charged in KES
+        </span>
       </div>
-      <div className="grid grid-cols-2 gap-2.5 mb-2.5">
-        {cfg.presets.map((a) => (
-          <button key={a} onClick={() => setAmount(a)} className={cn("py-3 rounded-[10px] border-[1.5px] font-semibold text-[15px] transition-colors", amount === a ? "border-terracotta bg-terracotta/10 text-terracotta" : "border-sage-line bg-white text-ink hover:border-terracotta")}>
-            {fmt(cfg.symbol, a)}
+
+      <div className="grid grid-cols-2 gap-2.5 mb-3">
+        {presets.map((preset) => (
+          <button
+            key={preset}
+            type="button"
+            onClick={() => setAmount(preset)}
+            className={cn(
+              "py-3 rounded-[10px] border-[1.5px] font-semibold text-[15px] transition-colors",
+              amount === preset
+                ? "border-terracotta bg-terracotta/10 text-terracotta"
+                : "border-sage-line bg-white text-ink hover:border-terracotta"
+            )}
+          >
+            {formatAmount("KES", preset)}
           </button>
         ))}
       </div>
-      <input inputMode="numeric" placeholder={`Other amount (${cfg.label})`} value={cfg.presets.includes(amount) ? "" : amount} onChange={(e) => setAmount(e.target.value)} className={cn(inputCls, "mb-3")} />
 
-      {method === "mpesa" && <input value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="M-Pesa phone (07…)" className={cn(inputCls, "mb-2.5")} />}
-      <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Name (optional)" className={cn(inputCls, "mb-2.5")} />
-      <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email for receipt (optional)" className={cn(inputCls, "mb-4")} />
+      <div className="mb-3">
+        <label htmlFor="donation-amount" className={labelClass}>
+          Other amount
+        </label>
+        <input
+          id="donation-amount"
+          inputMode="decimal"
+          value={
+            presets.includes(amount)
+              ? ""
+              : amount
+          }
+          onChange={(event) => setAmount(event.target.value)}
+          placeholder="KES"
+          className={inputClass}
+        />
+      </div>
 
-      <button onClick={onProceed} disabled={busy}
-        className="w-full justify-center inline-flex items-center gap-2 font-semibold text-base px-6 py-[14px] rounded-[10px] bg-terracotta text-white hover:bg-terracotta-deep transition-colors disabled:opacity-70">
-        {busy && <Loader2 size={18} className="animate-spin" />}
-        {status === "stk_sent" ? "Waiting for M-Pesa…" : status === "sending" ? "Starting…" : `Proceed to donate${amount ? ` · ${fmt(cfg.symbol, amount)}` : ""}`}
+      {method === "mpesa" && (
+        <div className="mb-3">
+          <label htmlFor="donation-phone" className={labelClass}>
+            M-Pesa phone number
+          </label>
+          <input
+            id="donation-phone"
+            type="tel"
+            autoComplete="tel"
+            value={phone}
+            onChange={(event) => setPhone(event.target.value)}
+            placeholder="0712 345 678"
+            className={inputClass}
+          />
+        </div>
+      )}
+
+      <div className="mb-3">
+        <label htmlFor="donation-name" className={labelClass}>
+          Name <span className="font-normal text-muted">(optional)</span>
+        </label>
+        <input
+          id="donation-name"
+          autoComplete="name"
+          value={name}
+          onChange={(event) => setName(event.target.value)}
+          className={inputClass}
+        />
+      </div>
+
+      <div className="mb-4">
+        <label htmlFor="donation-email" className={labelClass}>
+          Email for receipt <span className="font-normal text-muted">(optional)</span>
+        </label>
+        <input
+          id="donation-email"
+          type="email"
+          autoComplete="email"
+          value={email}
+          onChange={(event) => setEmail(event.target.value)}
+          className={inputClass}
+        />
+      </div>
+
+      <button
+        type="button"
+        onClick={onProceed}
+        disabled={busy}
+        className="w-full justify-center inline-flex items-center gap-2 font-semibold text-base px-6 py-[14px] rounded-[10px] bg-terracotta text-white hover:bg-terracotta-deep transition-colors disabled:opacity-70"
+      >
+        {busy && (
+          <Loader2 size={18} className="animate-spin" />
+        )}
+
+        {status === "checking"
+          ? "Checking payment..."
+          : status === "sending"
+            ? "Opening secure checkout..."
+            : `Continue securely${amountNumber > 0 ? ` · ${formatAmount("KES", amount)}` : ""}`}
       </button>
 
-      {msg && <p className={cn("text-[13px] text-center mt-3", status === "error" || status === "failed" ? "text-alert" : "text-muted")}>{msg}</p>}
-      {status === "idle" && <p className="text-[12px] text-muted text-center mt-3">Secure giving via M-Pesa or card. Card details are never entered here.</p>}
+      {message && (
+        <p
+          role={status === "error" || status === "failed" ? "alert" : undefined}
+          aria-live="polite"
+          className={cn(
+            "text-[13px] text-center mt-3",
+            status === "error" || status === "failed"
+              ? "text-alert"
+              : "text-muted"
+          )}
+        >
+          {message}
+        </p>
+      )}
+
+      <div className="flex items-start gap-2 text-[12px] text-muted mt-3">
+        <ShieldCheck size={15} className="shrink-0 mt-0.5" />
+        <p>
+          Payment is completed on IntaSend's secure checkout. AST does not collect or store your card details or M-Pesa PIN.
+        </p>
+      </div>
     </div>
   );
 }
