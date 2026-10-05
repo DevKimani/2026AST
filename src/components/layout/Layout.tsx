@@ -1,4 +1,7 @@
 import { useEffect } from "react";
+import {
+  restoreSavedLanguage,
+} from "@/i18n";
 
 import {
   Outlet,
@@ -16,6 +19,10 @@ import { quickExit } from "@/lib/quickExit";
 export function Layout() {
   const { pathname } =
     useLocation();
+
+  useEffect(() => {
+    restoreSavedLanguage();
+  }, []);
 
   useEffect(() => {
     window.scrollTo(0, 0);
